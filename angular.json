@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "taa-test-single-component-get-put-request"
+    }
+  },
+  "defaultProject": "taa-test-single-component-get-put-request",
+  "cli": {
+    "analytics": false
+  }
 }
