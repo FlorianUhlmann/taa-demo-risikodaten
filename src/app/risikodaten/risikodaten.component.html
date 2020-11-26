@@ -3,16 +3,17 @@
     <table>
         <tr>
             <th>{{fach_risiko}}</th>
-            <th><select>
-                <option ng-repeat="name in names">{{names}}</option>
-                </select>
+            <th><select [(ngModel)]="selected">
+                <option *ngFor="let person of fach_risikoTypen" [ngValue]="fach_risikoTypen">{{person.name}}</option>
+              </select>
             </th>
         </tr>
         <tr>
             <th>{{fach_flaeche}}</th>
             <th><input>
+                
             </th>
         </tr>
 <div>
-    
+   
 </div>
