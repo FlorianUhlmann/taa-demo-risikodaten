@@ -1,7 +1,7 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
-//TODO import service
-
-
+//DONE import service
+import { TaaService } from './../swagger-api-generated/api/taa.service';
 @Component({
   selector: 'app-risikodaten',
   templateUrl: './risikodaten.component.html',
@@ -9,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RisikodatenComponent implements OnInit {
 
+  observableTaa: Observable;
   selected;
+
+  resultFromApiRequest;
   
   fach_risiko  //TODO load data via service        //"Art des Risikos"
   
@@ -18,10 +21,11 @@ export class RisikodatenComponent implements OnInit {
   
   
   
-  constructor(/* TODO import service */) { }
+  constructor(private taaService:TaaService) { }
 
   ngOnInit(): void {
-    //TODO call service here AND assign data to variables fach_risiko|fach_fleache|fach_risikoTypen
+   this.observableTaa = this.taaService.getLabelsRisikoGet().subscribe( res =>
+    this.resultFromApiRequest = res )
   }
 }
 
